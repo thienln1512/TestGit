@@ -1,0 +1,170 @@
+.book-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.price-tag {
+    background-color: #ff9999;
+    color: #333;
+    padding: 5px 0;
+    font-weight: bold;
+    border-radius: 0 0 5px 5px;
+}
+
+.top-books {
+    background-color: #E9E9E9;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.category {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.rank-circle {
+    color: #333;
+    border-radius: 50%;
+    width: 58px;
+    height: 50px;
+    display: flex;
+    margin-right: 10px;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+    z-index: 1;
+}
+
+.filter-section {
+    padding: 15px 0px;
+    border-radius: 5px;
+    align-items: center;
+    width: 100%;
+}
+
+.filter-title {
+    background-color: #B3A4A4;
+    /* màu đỏ hồng nhạt */
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    width: 45%;
+    text-align: left;
+}
+
+.filter-search {
+    background-color: #B3A4A4;
+    /* màu đỏ hồng nhạt */
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    width: 50%;
+}
+
+.filter-by-category {
+    background-color: #B3A4A4;
+    border-radius: 8px;
+    width: 70%;
+    padding: 20px;
+    height: 200px;
+    margin: 50px 0px;
+    display: inline-block;
+    text-align: left;
+}
+
+.filter-by-category li {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    margin-bottom: 12px;
+    color: black;
+    padding-left: 20px;
+}
+
+.filter-by-category input[type="radio"] {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    margin-right: 10px;
+    background-color: #E1E1E1;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.filter-by-category input[type="radio"]:checked::before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 8px;
+    height: 8px;
+    background-color: black;
+    border-radius: 50%;
+}
+
+
+.filter-section h5 {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.filter-section ul {
+    padding-left: 0;
+    list-style-type: none;
+    width: 70%;
+    text-align: center;
+}
+
+.filter-section li {
+    margin-bottom: 8px;
+}
+
+
+.navbar .icon {
+    font-size: 1.5rem;
+    color: white;
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.navbar .icon:hover {
+    color: #ffd700;
+}
+
+.navbar .search-form {
+    width: 40%;
+    /* Tăng chiều rộng thanh tìm kiếm */
+}
+
+.navbar .search-form input {
+    width: 100%;
+    /* Đảm bảo input lấp đầy form */
+}
+
+.logo-img {
+    height: 80px;
+}
+
+.img-demo {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.container {
+    padding: 0 20px;
+    width: 100%;
+    justify-content: center;
+}
