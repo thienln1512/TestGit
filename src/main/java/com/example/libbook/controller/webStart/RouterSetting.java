@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping
 public class RouterSetting {
 
-    @GetMapping("/")
+    @GetMapping("/login")
     public String home(Model model) {
         return "Login/login";
     }
@@ -25,7 +25,7 @@ public class RouterSetting {
         return "Login/signup";
     }
 
-    @GetMapping("/home")
+    @GetMapping("/")
     public String dashboard(Model model) {
         return "Mainpage/home";
     }
