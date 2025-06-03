@@ -1,21 +1,39 @@
 package com.example.libbook.service.impl;
 
+import com.example.libbook.dto.UserDTO;
+import com.example.libbook.repository.UserRepository;
 import com.example.libbook.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.Base64;Add commentMore actions
-
+@Service
 public class UserServiceImpl implements UserService {
 
-    public  String hashPassword(String password){
-        try {
-            MessageDigest digest = MessageDigest.getInstance("SHA-256");
-            byte[] hash = digest.digest(password.getBytes());
-            return Base64.getEncoder().encodeToString(hash);
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException("Error hashing password", e);
+    @Autowired
+    private UserRepository userRepository;
+
+    @Override
+    public boolean createAccount(UserDTO userDTO) {
+        // Kiểm tra email đã tồn tại
+        if (isEmailExist(userDTO.getEmail())) {
+            throw new IllegalArgumentException("Email already exists!");
         }
+        // Lưu tài khoản
+        return userRepository.createAccount(userDTO);
     }
 
+    @Override
+    public UserDTO checkLogin(String email, String pass) {
+        return userRepository.checkLogin(email, pass);
+    }
+
+    @Override
+    public UserDTO getUserByEmail(String email) {
+        return userRepository.getUserByEmail(email);
+    }
+
+    @Override
+    public boolean isEmailExist(String email) {
+        return userRepository.isEmailExist(email);
+    }
 }

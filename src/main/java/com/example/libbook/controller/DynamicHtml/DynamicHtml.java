@@ -2,8 +2,12 @@ package com.example.libbook.controller.DynamicHtml;
 
 
 import com.example.libbook.dto.GoogleUser;
+import com.example.libbook.dto.UserDTO;
 import com.example.libbook.entity.GoogleConstants;
+import com.example.libbook.entity.User;
+import com.example.libbook.repository.UserRepository;
 import jakarta.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,6 +25,9 @@ import java.net.URLEncoder;
 @Controller
 public class DynamicHtml {
 
+    @Autowired
+    UserRepository userRepository;
+
     @GetMapping("/fragment/footer")
     public String getFooterFragment() {
         return "components/footer :: footer";
@@ -35,11 +42,18 @@ public class DynamicHtml {
     public String handleGoogleCallback(@RequestParam("code") String code, HttpSession session) throws IOException {
         String accessToken = getAccessToken(code);
         GoogleUser user = getUserInfo(accessToken);
-        if ("test@example.com".equals(user.getEmail()  )) {
-            session.setAttribute("user", user);
+        UserDTO userDTO = userRepository.getUserByEmail(user.getEmail());
+        if (userDTO != null) {
+            session.setAttribute("USER", userDTO);
             return "redirect:/home";
-        } else {
-            return "redirect:/signup";
+        }else {
+            UserDTO _u = new UserDTO();
+            _u.setEmail(user.getEmail());
+            _u.setUserName(user.getEmail().split("@")[0]);
+            _u.setPassword("");
+            userRepository.createAccount(_u);
+            session.setAttribute("USER", _u);
+            return "redirect:/home";
         }
     }
 

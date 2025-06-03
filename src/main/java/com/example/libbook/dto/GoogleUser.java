@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class GoogleUser {
-    private String sub;Add commentMore actions
+    private String sub;
     private String name;
     private String given_name;
     private String email;
